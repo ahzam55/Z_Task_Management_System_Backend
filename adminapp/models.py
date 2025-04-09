@@ -42,8 +42,8 @@ class Task(models.Model):
     task_name = models.CharField(max_length=255)
     task_description = models.TextField()
     task_last_date = models.DateField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
     created_by = models.ForeignKey(MyUser, on_delete=models.SET_NULL, null=True, related_name='tasks_created')
     assigned_to = models.ForeignKey(MyUser, on_delete=models.SET_NULL, null=True, related_name='tasks_assigned')
     STATUS_CHOICES = [
@@ -78,7 +78,7 @@ class TaskReport(models.Model):
     taskreport_id = models.AutoField(primary_key=True) 
     task = models.ForeignKey(Task, on_delete=models.CASCADE)  
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)  
-    report_date = models.DateTimeField(auto_now_add=True)  
+    report_date = models.DateField(auto_now_add=True)  
     report_file = models.FileField(upload_to='task_reports/', blank=True, null=True) 
     
     class Meta:

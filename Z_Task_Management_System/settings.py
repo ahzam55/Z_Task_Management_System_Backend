@@ -158,3 +158,23 @@ CORS_ALLOW_HEADERS = [
     'refresh-token',  # Add this line to allow the custom header
     # Add any other headers you need
 ]
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/home/developer/Desktop/Z Task Management System/Z_Task_Management_System/debug.log",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    },
+}

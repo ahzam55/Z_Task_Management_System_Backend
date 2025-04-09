@@ -1,6 +1,6 @@
 from django.urls import path
 from adminapp import views
-
+from .views import refresh_token
 
 
 
@@ -11,7 +11,7 @@ urlpatterns =[
     path('Signin/', views.Signin, name='Signin'),
     path('Manager/', views.Manager, name='Manager'),
     path('Employee/', views.Employee, name='Employee'),
-    # path('api/token/refresh/',refresh_token, name='token_refresh'),
+    path('api/token/refresh/',refresh_token, name='token_refresh'),
     # path('student/<int:id>', views.student, name='student'),
     # path('student/<id>', views.student, name='student'),  
     path('Project_Registration/', views.Project_Registration, name='Project_Registration'),
