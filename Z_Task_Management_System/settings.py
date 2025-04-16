@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 from django.conf.urls.static import static
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,6 +98,20 @@ DATABASES = {
         'USER': 'devtest2user',          
         'PASSWORD': 'EwrQJf4quPHjZ2DczGLs6Y',                
         'HOST': 'mysql.zoondia.net',                  
+        'PORT': '3306',   
+    }
+}
+
+
+
+if 'test' in sys.argv:  # Check if running in test mode
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test_devtest2db',               # Database name
+        'USER': 'root',               # Database user
+        'PASSWORD': '',                # Database password
+        'HOST': 'localhost',                        # Database host
         'PORT': '3306',   
     }
 }

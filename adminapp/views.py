@@ -84,7 +84,6 @@ def Signin(request):
                                 "message": "Cannot log more than 8 hours in a day.",
                                 "debugMessage": f"Total work log time today: {total_work_log_time} hours."
                             }
-                            response_data['redirect'] = 'signin' 
                             return create_error_response(400, "Cannot log more than 8 hours in a day.", f"Total work log time today: {total_work_log_time} hours.")
 
                     # Generate access token and refresh token
